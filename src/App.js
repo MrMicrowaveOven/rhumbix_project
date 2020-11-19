@@ -11,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <h1 className="base">👋 Thanks for taking our programming test!</h1>
-      <input onChange={e => setInputValue(e.target.value)} />
-      <Autofill value={inputValue}/>
+      <input onChange={e => setInputValue(e.target.value)} value={inputValue}/>
+      <Autofill value={inputValue} setValue={(selectedValue) => setInputValue(selectedValue)}/>
       <button onClick={() => setKeyword(inputValue)}>Fetch me a Gif!</button>
       <Gif keyword={keyword}/>
     </div>

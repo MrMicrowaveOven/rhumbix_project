@@ -3,6 +3,7 @@ function AutofillOption(props) {
 
   const handleClick = (e) => {
     const text = e.target.innerText
+    props.setValue(text)
   }
 
   return (

@@ -1,6 +1,10 @@
 import AutofillOption  from './AutofillOption.js'
 
 function Autofill(props) {
+  const setValue = (selectedValue) => {
+    props.setValue(selectedValue)
+  }
+
   const {value} = props
 
   const autofills = ['about', 'above', 'across', 'app', 'apple', 'appreciate', 'bad', 'ball', 'balloon', 'bell', 'cat']
@@ -10,7 +14,7 @@ function Autofill(props) {
   return (
     <div className="autofill">
       {value && validAutofills.map(autofillOption => {
-        return <AutofillOption key={autofillOption} value={autofillOption} />
+        return <AutofillOption key={autofillOption} value={autofillOption} setValue={setValue}/>
       })}
     </div>
   );
