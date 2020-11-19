@@ -1,39 +1,44 @@
 import './App.css';
 import Gif from './components/Gif.js'
+import { useState } from 'react';
 
 function App() {
-  // const insertImage = (imageSource) => {
-  //   const img = '<img class="gif" src="' + imageSource + '" alt="">'
-  //   $('.gif-holder').empty()
-  //   $('.gif-holder').append(img)
-  // }
-  //
-  // const getGiphy = () => {
-  //   const keyword = $('#gifKeyword').val()
-  //   if (keyword == '') {
-  //     $('.gif-holder').empty()
-  //     $('.gif-holder').append('<div>Please input a keyword!</div>')
-  //   } else {
-  //     const giphyFetchUrl = "https://api.giphy.com/v1/gifs/search?q=" + keyword + "&api_key=DLCVuTK6KZExOS7JoMq82bi5MaI6EbWO&limit=1"
-  //     fetch(giphyFetchUrl)
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(jsonResponse => {
-  //       console.log(jsonResponse)
-  //       const gifUrl = jsonResponse.data[0].images.original.url
-  //       insertImage(gifUrl)
-  //     });
-  //   }
-  // }
+  const getGiphy = (keyword) => {
+    const giphyFetchUrl = "https://api.giphy.com/v1/gifs/search?q=" + keyword + "&api_key=DLCVuTK6KZExOS7JoMq82bi5MaI6EbWO&limit=1"
+    fetch(giphyFetchUrl)
+    .then(response => {
+      return response.json();
+    })
+    .then(jsonResponse => {
+      console.log(jsonResponse)
+      const url = jsonResponse.data[0].images.original.url
+      console.log(url)
+      setGifUrl(url)
+    });
+  }
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value)
+  }
+
+  const setGif = () => {
+    setGifUrl(inputValue)
+  }
+
+  const handleClick = () => {
+    getGiphy(inputValue)
+  }
+
+  const [inputValue, setInputValue] = useState('');
+  const [gifUrl, setGifUrl] = useState('')
 
   return (
     <div className="App">
       <h1 className="base">👋 Thanks for taking our programming test!</h1>
-      <input type="text" id="gifKeyword" name="" />
-      <button type="button" name="button" onClick="getGiphy()">Fetch me a Gif!</button>
+      <input type="text" id="gifKeyword" name="" onChange={handleChange} />
+      <button type="button" name="button" onClick={handleClick}>Fetch me a Gif!</button>
 
-      <Gif />
+      <Gif url={gifUrl}/>
     </div>
   );
 }
