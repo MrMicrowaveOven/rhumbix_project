@@ -8,7 +8,9 @@ function Gif(props) {
   })
 
   const getGiphy = (keyword) => {
-    const giphyFetchUrl = "https://api.giphy.com/v1/gifs/search?q=" + keyword + "&api_key=DLCVuTK6KZExOS7JoMq82bi5MaI6EbWO&limit=1"
+    const giphyFetchUrl = "https://api.giphy.com/v1/gifs/search?q="
+      + keyword
+      + "&api_key=DLCVuTK6KZExOS7JoMq82bi5MaI6EbWO&limit=1"
     fetch(giphyFetchUrl)
     .then(response => {
       return response.json();
@@ -21,7 +23,6 @@ function Gif(props) {
     });
   }
 
-  const {keyword} = props
   const [gifUrl, setGifUrl] = useState('')
 
   return (
