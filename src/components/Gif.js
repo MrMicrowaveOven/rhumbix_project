@@ -1,7 +1,5 @@
-import './App.css';
-import Gif from './components/Gif.js'
-
-function App() {
+import { useState } from 'react';
+function Gif() {
   // const insertImage = (imageSource) => {
   //   const img = '<img class="gif" src="' + imageSource + '" alt="">'
   //   $('.gif-holder').empty()
@@ -27,15 +25,13 @@ function App() {
   //   }
   // }
 
-  return (
-    <div className="App">
-      <h1 className="base">👋 Thanks for taking our programming test!</h1>
-      <input type="text" id="gifKeyword" name="" />
-      <button type="button" name="button" onClick="getGiphy()">Fetch me a Gif!</button>
+  const [url, setUrl] = useState('');
 
-      <Gif />
+  return (
+    <div className="gif">
+      <img src={url} />
     </div>
   );
 }
 
-export default App;
+export default Gif;
