@@ -1,4 +1,4 @@
-// import { useState, useEffect } from 'react';
+import AutofillOption  from './AutofillOption.js'
 
 function Autofill(props) {
   const {value} = props
@@ -9,8 +9,8 @@ function Autofill(props) {
 
   return (
     <div className="autofill">
-      {value && validAutofills.map((autofillOption) => {
-        return <div key={autofillOption}>{autofillOption}</div>
+      {value && validAutofills.map(autofillOption => {
+        return <AutofillOption key={autofillOption} value={autofillOption} />
       })}
     </div>
   );
