@@ -1,5 +1,5 @@
 function AutofillOption(props) {
-  const {value} = props;
+  const {numFilled, value} = props;
 
   const handleClick = (e) => {
     const text = e.target.innerText
@@ -8,7 +8,7 @@ function AutofillOption(props) {
 
   return (
     <div className="autofill-option" key={value} onClick={handleClick}>
-      {value}
+      <b>{value.slice(0,numFilled)}</b>{value.slice(numFilled)}
     </div>
   );
 }

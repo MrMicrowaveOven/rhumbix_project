@@ -12,13 +12,11 @@ function Gif(props) {
       + keyword
       + "&api_key=DLCVuTK6KZExOS7JoMq82bi5MaI6EbWO&limit=1"
     fetch(giphyFetchUrl)
-    .then(response => {
-      return response.json();
-    })
+    .then(response => { return response.json(); })
     .then(jsonResponse => {
-      console.log(jsonResponse)
+      // console.log(jsonResponse)
       const url = jsonResponse.data[0].images.original.url
-      console.log(url)
+      // console.log(url)
       setGifUrl(url)
     });
   }
