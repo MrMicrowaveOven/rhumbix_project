@@ -15,10 +15,16 @@ function Gif(props) {
     .then(response => { return response.json(); })
     .then(jsonResponse => {
       // console.log(jsonResponse)
-      const url = jsonResponse.data[0] ? jsonResponse.data[0].images.original.url : '';
       // console.log(url)
-      setGifUrl(url)
-      setErrorText(url ? '' : "Sorry, I couldn't find a gif for that.")
+      const imageHash = jsonResponse.data[0]
+      if (imageHash) {
+        const url = imageHash.images.original.url;
+        setGifUrl(url);
+        setErrorText('');
+      } else {
+        setGifUrl('');
+        setErrorText("Sorry, I couldn't find a gif for that.");
+      }
     });
   }
 
