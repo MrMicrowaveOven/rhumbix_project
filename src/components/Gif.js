@@ -15,17 +15,20 @@ function Gif(props) {
     .then(response => { return response.json(); })
     .then(jsonResponse => {
       // console.log(jsonResponse)
-      const url = jsonResponse.data[0].images.original.url
+      const url = jsonResponse.data[0] ? jsonResponse.data[0].images.original.url : '';
       // console.log(url)
       setGifUrl(url)
+      setErrorText(url ? '' : "Sorry, I couldn't find a gif for that.")
     });
   }
 
   const [gifUrl, setGifUrl] = useState('')
+  const [errorText, setErrorText] = useState('')
 
   return (
     <div className="gif">
       <img src={gifUrl} />
+      <div className="error-text">{errorText}</div>
     </div>
   );
 }
