@@ -3,11 +3,12 @@
 }
 
 .autofill-option:hover {
-  background-color: blue;
+  background-color: skyblue;
   cursor: pointer;
 }
 
 .autofill-option {
   margin: auto;
   width: 300px;
+  border: solid 1px;
 }
