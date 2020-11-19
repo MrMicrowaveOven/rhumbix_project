@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+.autofill-option:hover {
+  background-color: blue;
+  cursor: pointer;
+}
