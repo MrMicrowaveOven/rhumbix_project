@@ -13,7 +13,7 @@ function Autofill(props) {
 
   return (
     <div className="autofill">
-      {value && validAutofills.map(autofillOption => {
+      {value && validAutofills.indexOf(value) === -1 && validAutofills.map(autofillOption => {
         return <AutofillOption key={autofillOption} value={autofillOption} setValue={setValue}/>
       })}
     </div>

@@ -6,3 +6,8 @@
   background-color: blue;
   cursor: pointer;
 }
+
+.autofill-option {
+  margin: auto;
+  width: 300px;
+}
