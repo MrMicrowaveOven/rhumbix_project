@@ -1,5 +1,6 @@
 import './App.css';
 import Gif from './components/Gif.js'
+import Autofill from './components/Autofill.js'
 import { useState } from 'react';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <h1 className="base">👋 Thanks for taking our programming test!</h1>
       <input onChange={e => setInputValue(e.target.value)} />
+      <Autofill value={inputValue}/>
       <button onClick={() => setKeyword(inputValue)}>Fetch me a Gif!</button>
       <Gif keyword={keyword}/>
     </div>
