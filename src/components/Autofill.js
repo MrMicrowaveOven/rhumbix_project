@@ -5,11 +5,9 @@ function Autofill(props) {
     props.setValue(selectedValue)
   }
 
-  const {value} = props
+  const {options, value} = props
 
-  const autofills = ['about', 'above', 'across', 'app', 'apple', 'appreciate', 'bad', 'ball', 'balloon', 'bell', 'cat']
-
-  const validAutofills = autofills.filter(word => word.indexOf(value) === 0)
+  const validAutofills = options.filter(word => word.indexOf(value) === 0)
 
   return (
     <div className="autofill">
